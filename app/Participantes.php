@@ -25,7 +25,7 @@ class Participantes extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombrepa','apellido','cedula','telefono', 'created_at', 'updated_at'];
+    protected $fillable = ['nombrepa','cedula','telefono', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

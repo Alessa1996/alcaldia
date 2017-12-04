@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 @if(count($errors))
 <div class="alert alert-danger">
     <ul>
@@ -20,10 +23,6 @@
                 		{!! Form::text('nombrepa',null,['class'=>'form-control','placeholder'=>'Nombres completos','required'])!!}
                 	</div>
                 	<div class="form-group">
-                		{!! Form::label('apellido','Apellido')!!}
-                		{!! Form::text('apellido',null,['class'=>'form-control','placeholder'=>'Apellidos completos','required'])!!}
-                	</div>
-                	<div class="form-group">
                 		{!! Form::label('telefono','Telefono')!!}
                 		{!! Form::text('telefono',null,['class'=>'form-control','placeholder'=>'#########','required'])!!}
                 	</div>
@@ -36,3 +35,4 @@
 
                 	</div>
                 	{!! Form::close() !!}
+ @endsection

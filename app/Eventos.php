@@ -38,7 +38,7 @@ class Eventos extends Model
     /**
      * @var array
     */
-    protected $fillable = ['fecha', 'lugar', 'hora', 'nombre_eve', 'responsable', 'tematica', 'programacion','listadechequeo_idlista', 'created_at', 'updated_at'];
+    protected $fillable = ['fecha', 'lugar', 'hora', 'nombre_eve', 'responsable', 'tematica_idtematica', 'programacion','listadechequeo_idlista', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -54,5 +54,9 @@ class Eventos extends Model
     public function eventosHasParticipantes()
     {
         return $this->hasMany('App\EventosHasParticipantes', 'eventos_ideventos', 'ideventos');
+    }
+     public function tematica()
+    {
+        return $this->belongsTo('App\Tematica', 'tematica_idtematica', 'idtematica');
     }
 }

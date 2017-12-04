@@ -45,11 +45,11 @@ class ParticipanteController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
         $this->validate($request,[
             'nombrepa'=>'required|min:6|max:40', 
-            'apellido'=>'required|min:6|max:40',
             'telefono'=>'required|min:6|max:13',
-            'cedula'=>'required|unique:participantes|max:12'
+            'cedula'=>'required|unique:participantes|max:11'
             ]); 
 
         $participante=new Participantes( $request->all());
@@ -72,12 +72,7 @@ class ParticipanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -100,11 +95,10 @@ class ParticipanteController extends Controller
     {
        $participante=participantes::find($id);
        $participante->nombrepa= $request->nombrepa;
-       $participante->apellido= $request->apellido;
        $participante->telefono= $request->telefono;
        $participante->cedula= $request->cedula;
        $participante->save();
-       Flash:: warning('El participante '.$participante->nombrepa.' '.$participante->apellido.' ha sido editado satisfactoriamente ');
+       Flash:: warning('El participante '.$participante->nombrepa.'  ha sido editado satisfactoriamente ');
        return redirect()->route('participantes.index');
 
     }
@@ -119,7 +113,7 @@ class ParticipanteController extends Controller
     {
         $participante=participantes::find($id);
         $participante::destroy($id);
-        Flash::error('El participante '.$participante->nombre." ".$participante->apellido."ha sido eliminado de forma exitosa" );
+        Flash::error('El participante '.$participante->nombre." ha sido eliminado de forma exitosa" );
        return redirect()->route('participantes.index');
 }
 }

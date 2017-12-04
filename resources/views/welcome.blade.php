@@ -78,7 +78,7 @@
             @endif
 
             <div class="content">
-            <img src="{{URL::asset('/logo agua de dios final-01.png')}}" alt="profile Pic" height="300" width="300">
+            <img src="{{URL::asset('/logo.png')}}" alt="profile Pic" height="300" width="300">
             <div class="title m-b-md">
                 Alcaldia de Agua de Dios
             </div>

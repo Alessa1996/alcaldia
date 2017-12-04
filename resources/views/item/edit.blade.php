@@ -1,5 +1,5 @@
+@if (Auth::User()->tipo_idtipo ="1")
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -20,3 +20,4 @@
                 	{!! Form::close() !!}
 
 @endsection
+@endif

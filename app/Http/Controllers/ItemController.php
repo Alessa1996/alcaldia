@@ -42,17 +42,24 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
         $this->validate($request,[
             'item'=>'required|min:4|max:40'
                       
             ]); 
-
         $item=new Items( $request->all());
-        $item->save();
-       Flash::success("se ha registrado al item ".$item->item." de forma exitosa");
-       return redirect()->route('item.index');
-    }
-
+        if ($item->save()) {
+            $mensaje = "Success";
+            $item= Items::all()->last();
+        }else{
+            $mensaje = "falied";
+            $item = "";
+        }
+      
+       return response()->json(["mensaje" => $mensaje,"item"=>$item]);
+       
+}
+      
     /**
      * Display the specified resource.
      *

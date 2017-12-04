@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -7,8 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Mostrar items</div>
                 <div class="panel-body">
-                	<a href="{{route('item.create')}}" class="btn btn-success btn-sm">Registrar un nuevo item</a><hr>
-                	<table class="table table-striped">
+                	    	<table class="table table-striped">
                 		<thead>
                 			<th>Id</th>
                 			<th>Item</th>

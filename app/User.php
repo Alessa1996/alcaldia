@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','dependencia','type'
+        'name', 'email', 'password','dependencia','tipo_idtipo'
     ];
 
     /**
@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+      public function tipo()
+    {
+        return $this->belongsTo('App\Tipo', 'tipo_idtipo', 'idtipo');
+    }
 }

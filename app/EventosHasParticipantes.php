@@ -17,14 +17,18 @@ class EventosHasParticipantes extends Model
     /**
      * @var array
      */
-    protected $fillable = ['eventos_ideventos','participantes_idparticipantes','created_at', 'updated_at'];
+    protected $table = 'eventos_has_participantes';
+
+    protected $primaryKey = 'idevenpa';
+
+    protected $fillable = ['eventos_ideventos','participantes_idparticipantes','estado_idestado','created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function evento()
     {
-        return $this->belongsTo('App\Evento', 'eventos_ideventos', 'ideventos');
+        return $this->belongsTo('App\Eventos', 'eventos_ideventos', 'ideventos');
     }
 
     /**
@@ -33,5 +37,9 @@ class EventosHasParticipantes extends Model
     public function participante()
     {
         return $this->belongsTo('App\Participantes', 'participantes_idparticipantes', 'idparticipantes');
+    }
+     public function estado()
+    {
+        return $this->belongsTo('App\Estado', 'estado_idestado', 'idestado');
     }
 }

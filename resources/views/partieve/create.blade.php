@@ -24,7 +24,7 @@
                             </div>
                              <div class="form-group  col-md-6 col-sm-12">
                                 {!! Form::label('participantes_idparticipantes','Participantes')!!}
-                                {!!Form::Select('participantes_idparticipantes',$parti,null,['class'=>'form-control','placeholder'=>'selecione un opcion','multiple','required'])!!}
+                                {!!Form::Select('participantes_idparticipantes[]',$parti,null,[ 'class'=>'form-control','placeholder'=>'selecione un opcion','required'])!!}
                             </div>
                        
                     	<div class="form-group">

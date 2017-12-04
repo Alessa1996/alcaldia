@@ -11,17 +11,18 @@ class ListaDeChequeoHasItem extends Model
      * 
      * @var string
      */
-    protected $table = 'lista_de_chequeo_has_items';
+    protected $table = 'listadechequeo_has_item';
 
+    protected $primaryKey = 'idlistait';
     
-    protected $fillable = ['listadechequeo_idlista','items_iditem','cantidad','responsable','created_at', 'updated_at'];
+    protected $fillable = ['listadechequeo_idlista','item_iditem','cantidad','responsable','created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function items()
     {
-        return $this->belongsTo('App\Items', 'items_iditem', 'iditem');
+        return $this->belongsTo('App\Items', 'item_iditem', 'iditem');
     }
 
     /**

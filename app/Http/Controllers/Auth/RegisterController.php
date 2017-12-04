@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Participantes;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -38,6 +39,12 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+     public function index()
+    {
+      $usuario=User::orderBy('id',"ASC")->paginate(15);
+      return view('usuario.index')->with('usuarios',$usuarios); 
+       
+     }
 
     /**
      * Get a validator for an incoming registration request.
@@ -52,8 +59,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'dependencia' => 'required|max:255',
-            'type' => 'required|max:255',
-        ]);
+            ]);
     }
 
     /**
@@ -69,7 +75,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'dependencia' => $data['dependencia'],
-            'type' => $data['type'],
+            
         ]);
-    }
+     }
 }

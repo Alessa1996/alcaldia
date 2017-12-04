@@ -9,12 +9,8 @@
                 <div class="panel-body">
                 	{!! Form::open(['route'=>['participantes.update',$participantes] ,'method'=>'PUT'])!!}
                 	<div class="form-group">
-                		{!! Form::label('nombre','Nombre')!!}
-                		{!! Form::text('nombre', $participantes->nombre ,['class'=>'form-control','placeholder'=>'Nombres completos','required'])!!}
-                	</div>
-                	<div class="form-group">
-                		{!! Form::label('apellido','Apellido')!!}
-                		{!! Form::text('apellido',$participantes->apellido,['class'=>'form-control','placeholder'=>'Apellidos completos','required'])!!}
+                		{!! Form::label('nombrepa','Nombre')!!}
+                		{!! Form::text('nombrepa', $participantes->nombrepa ,['class'=>'form-control','placeholder'=>'Nombres completos','required'])!!}
                 	</div>
                 	<div class="form-group">
                 		{!! Form::label('telefono','Telefono')!!}

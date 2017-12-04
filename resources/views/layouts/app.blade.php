@@ -20,17 +20,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -39,15 +31,42 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                     @if (Auth::user())            
+                     @if (Auth::user())      
+
+                        @if (Auth::User()->tipo_idtipo =="1")      
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                          <li><a href="{{ url('/item') }}">Items</a></li>
                           <li><a href="{{ url('/participantes') }}">Participantes</a></li>
-                          <li><a href="#">Eventos</a></li>
-                          <li><a href="{{ url('/lista') }}">Lista de chequeo</a></li>
-                        &nbsp;
+                          <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Eventos
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu"> 
+                                    <li><a href="{{ url('/evento') }}">Eventos</a></li>
+                                    <li><a href="{{ url('/evenpart') }}">Asistentes</a></li>
+                                </ul>
+                          </li>
+                          <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listas de chequeo
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="{{ url('/lista') }}">Lista de <br>chequeo</a></li>
+                                <li><a href="{{ url('/listait') }}">Items de <br>la lista</a></li>
+                                </ul>
+                          </li>
+                         
+                          <li><a href="{{ url('/tematica') }}">Tematica</a></li>
+                          <li><a href="{{ url('/estado') }}">Estado</a></li>
+                          <li><a href="{{ url('/usuario') }}">Usuarios</a></li>
+
                     </ul>
+                    @endif
+
+                        @if (Auth::User()->tipo_idtipo =="2")
+                        <ul class="nav navbar-nav">
+                         <li><a href="{{ url('/evenpart') }}">Asistentes</a></li>
+                                </ul>
+                          @endif
                     @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
